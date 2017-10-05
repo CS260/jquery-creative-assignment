@@ -1,9 +1,15 @@
-console.log("HI!")
-
 $(document).ready(function(){
 
-	$("#testButton").click(function(e){
-		e.preventDefault();
+	$("#numberQuestions").keypress(function(e){
+
+
+		// e.preventDefault();
+		if(e.which==13){
+
+		if(isNaN($("#numberQuestions").val()) | $("#numberQuestions").val() > 20 | $("#numberQuestions").val() === "0") {
+
+		}
+		else{
 
 		var myurl= "https://opentdb.com/api.php?amount="+$("#numberQuestions").val()+"&difficulty=easy&type=boolean";
 		console.log(myurl);
@@ -45,72 +51,71 @@ $(document).ready(function(){
 			    }
 
 
-		      	$("#begin-game").click(function(){
+		      	setTimeout(function(){
 
-		      		runGame();
-		      		
-		      		function runGame(){
-		      		
-						var txtQuestionInput;
-						txtQuestionInput = "<div>"
-						txtQuestionInput += "<H1> Question: "+triviaQuestions[currentQCounter]+" True or False? </H1>";
-						txtQuestionInput += "<br>"
-						txtQuestionInput += '<input id="input-answer-field'+currentQCounter+'" type="text" value="">'
-						txtQuestionInput += "<br>"
-						// txtQuestionInput += '<input id="input-answer'+currentQCounter+'" type="submit" value="Submit">'
-			      		$("#game-container").append(txtQuestionInput);
+		      		if(e.which==13){
+			      		runGame();
+			      		
+			      		function runGame(){
+			      		
+							var txtQuestionInput;
+							txtQuestionInput = "<div>"
+							txtQuestionInput += "<H1> Question: "+triviaQuestions[currentQCounter]+" True or False? </H1>";
+							txtQuestionInput += "<br>"
+							txtQuestionInput += '<input id="input-answer-field'+currentQCounter+'" type="text" value="">'
+							txtQuestionInput += "<br>"
+				      		$("#game-container").append(txtQuestionInput);
 
 
-			      		$("#input-answer-field"+currentQCounter).keypress(function(e){
+				      		$("#input-answer-field"+currentQCounter).keypress(function(e){
 
-			      			if (e.which==13)
-			      			{
-				      			var userResponse = validateResponse($("#input-answer-field"+currentQCounter).val());
+				      			if (e.which==13)
+				      			{
+					      			var userResponse = validateResponse($("#input-answer-field"+currentQCounter).val());
 
-				      			var txtQuestionOutput;
-				      			txtQuestionOutput = "<div>";
-								txtQuestionOutput += "<H1>"+userResponse+"</H1>";
-								// txtQuestionOutput += '<input id="next-question'+currentQCounter+'" type="submit" value="Submit">';
-								$("#game-container").append(txtQuestionOutput);
+					      			var txtQuestionOutput;
+					      			txtQuestionOutput = "<div>";
+									txtQuestionOutput += "<H1>"+userResponse+"</H1>";
+									$("#game-container").append(txtQuestionOutput);
 
-								// $("#next-question"+currentQCounter).click(function(){
+									setTimeout(function(){
+										currentQCounter++;
 
-								setTimeout(function(){
-									currentQCounter++;
+										var tmp = currentQCounter + 1;
+										if(tmp > triviaQuestions.length)
+										{
 
-									var tmp = currentQCounter + 1;
-									if(tmp > triviaQuestions.length)
-									{
+											console.log("GAME OVER");
 
-										console.log("GAME OVER");
+											var txtQuestionEnd;
+					      					txtQuestionEnd = "<div>";
+											txtQuestionEnd += "<H1>Game over... Total points "+userTotalScore+"</H1>";
+											$("#game-container").append(txtQuestionEnd);
 
-										var txtQuestionEnd;
-				      					txtQuestionEnd = "<div>";
-										txtQuestionEnd += "<H1>Game over... Total points "+userTotalScore+"</H1>";
-										// txtQuestionEnd += '<input id="next-question'+currentQCounter+'" type="submit" value="Submit">';
-										$("#game-container").append(txtQuestionEnd);
+											return;
+										
+										}else{
 
-										return;
-									
-									}else{
+											console.log("Repeat");
 
-										console.log("Repeat");
+											runGame();
 
-										runGame();
+										}
+									},1200);
 
-									}
-								},1200);
-								// });
+								}
 
-							}
+				      		});	
 
-			      		});	
+			      		}
 
 		      		}	
 
-		      	});	
+		      	},1200);	
 		    }
 		});
+		}
+		}
 	});
 
 });
