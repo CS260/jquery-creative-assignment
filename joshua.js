@@ -7,7 +7,6 @@ $(document).ready(function() {
 
   //$('#greeting').hide();
   $('#invite').hide();
-  //$('#response').hide();
 
   refresh();
   typeWriter("GREETINGS PROFESSOR FALKEN.","#greeting",70);
@@ -65,19 +64,24 @@ $(document).keypress(function(e){
       yes = true;
       t.empty();
 
-    //  l.after('<li></li>');
+      l.after('<li></li>');
+      l = $('li:last-of-type');
       refresh();
-      typeWriter('IT\'S TRIVIA TIME!', $('li:last-of-type'), 70);
-      //setTimeout(gameTime(), 2000);
+      //typeWriter('IT\'S TRIVIA TIME!', l, 70);
+      typeWriter('IT\'S TRIVIA TIME!', l, 70);
+      // l.on("changed",function(){
+      //   $('#prompt').show();
+      // })
+      // setTimeout(, );
       //gameTime();
       //
       // l = $('li:last-of-type');
       // l.after('<li id="countdown"></li>');
       // refresh();
       // typeWriter('3...2...1...', '#countdown', 70);
-      // setTimeout(function(){
-      //   //window.location.replace("main.html");
-      // },4000);//7000);
+      setTimeout(function(){
+        window.location.replace("main.html");
+      },2000);//7000);
       break;
     }
     default:

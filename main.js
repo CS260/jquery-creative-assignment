@@ -22,13 +22,13 @@ $(document).ready(function(){
 
 			    var triviaQuestions = [];
 			    var triviaAnswers = [];
-			    
+
 		    	for(var i = 0; i < parsed_json.results.length; i++)
 		    	{
 
 		    		triviaQuestions.push(parsed_json.results[i].question);
 		    		triviaAnswers.push(parsed_json.results[i].correct_answer.toLowerCase());
-		    		console.log(triviaAnswers[0]);		    		
+		    		console.log(triviaAnswers[0]);
 		    	}
 
 
@@ -55,13 +55,12 @@ $(document).ready(function(){
 
 		      		if(e.which==13){
 			      		runGame();
-			      		
+
 			      		function runGame(){
-			      		
+
 							var txtQuestionInput;
 							txtQuestionInput = "<div>"
-							txtQuestionInput += "<H1> Question: "+triviaQuestions[currentQCounter]+" True or False? </H1>";
-							txtQuestionInput += "<br>"
+							txtQuestionInput += "<p> Question: "+triviaQuestions[currentQCounter]+" True or False? </p>";
 							txtQuestionInput += '<input id="input-answer-field'+currentQCounter+'" type="text" value="">'
 							txtQuestionInput += "<br>"
 				      		$("#game-container").append(txtQuestionInput);
@@ -75,11 +74,13 @@ $(document).ready(function(){
 
 					      			var txtQuestionOutput;
 					      			txtQuestionOutput = "<div>";
-									txtQuestionOutput += "<H1>"+userResponse+"</H1>";
-									$("#game-container").append(txtQuestionOutput);
+											txtQuestionOutput += "<p>"+userResponse+"</p>";
+											txtQuestionOutput += "<br>"
+											$("#game-container").append(txtQuestionOutput);
 
-									setTimeout(function(){
-										currentQCounter++;
+
+											setTimeout(function(){
+												currentQCounter++;
 
 										var tmp = currentQCounter + 1;
 										if(tmp > triviaQuestions.length)
@@ -89,11 +90,11 @@ $(document).ready(function(){
 
 											var txtQuestionEnd;
 					      					txtQuestionEnd = "<div>";
-											txtQuestionEnd += "<H1>Game over... Total points "+userTotalScore+"</H1>";
+											txtQuestionEnd += "<p>Game over... Total points "+userTotalScore+"</p>";
 											$("#game-container").append(txtQuestionEnd);
 
 											return;
-										
+
 										}else{
 
 											console.log("Repeat");
@@ -101,17 +102,17 @@ $(document).ready(function(){
 											runGame();
 
 										}
-									},1200);
+									},800);
 
 								}
 
-				      		});	
+				      		});
 
 			      		}
 
-		      		}	
+		      		}
 
-		      	},1200);	
+		      	},800);
 		    }
 		});
 		}
