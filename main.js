@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+	$("#numberQuestions").get(0).focus();
+
 	$("#numberQuestions").keypress(function(e){
 
 
@@ -60,11 +62,12 @@ $(document).ready(function(){
 
 							var txtQuestionInput;
 							txtQuestionInput = "<div>"
-							txtQuestionInput += "<p> Question: "+triviaQuestions[currentQCounter]+" True or False? </p>";
+							txtQuestionInput += "<p> Question: "+triviaQuestions[currentQCounter]+" (True/False) </p>";
 							txtQuestionInput += '<input id="input-answer-field'+currentQCounter+'" type="text" value="">'
 							txtQuestionInput += "<br>"
 				      		$("#game-container").append(txtQuestionInput);
 
+				      		$("#input-answer-field"+currentQCounter).get(0).focus();
 
 				      		$("#input-answer-field"+currentQCounter).keypress(function(e){
 
@@ -74,26 +77,46 @@ $(document).ready(function(){
 
 					      			var txtQuestionOutput;
 					      			txtQuestionOutput = "<div>";
-											txtQuestionOutput += "<p>"+userResponse+"</p>";
-											txtQuestionOutput += "<br>"
-											$("#game-container").append(txtQuestionOutput);
+									txtQuestionOutput += "<p>"+userResponse+"</p>";
+									txtQuestionOutput += "<br>"
+									$("#game-container").append(txtQuestionOutput);
 
 
-											setTimeout(function(){
-												currentQCounter++;
+									setTimeout(function(){
+									currentQCounter++;
 
-										var tmp = currentQCounter + 1;
+									var tmp = currentQCounter + 1;
 										if(tmp > triviaQuestions.length)
 										{
-
-											console.log("GAME OVER");
 
 											var txtQuestionEnd;
 					      					txtQuestionEnd = "<div>";
 											txtQuestionEnd += "<p>Game over... Total points "+userTotalScore+"</p>";
 											$("#game-container").append(txtQuestionEnd);
 
-											return;
+
+				      							
+				      							setTimeout(function(){
+													var txtQuestionRestart;
+													txtQuestionRestart = "<div>"
+													txtQuestionRestart += "<br>"
+													txtQuestionRestart += "<p> Restart game? Press Enter</p>";
+													txtQuestionRestart += '<input id="input-restart-field" type="text" value="">'
+										      		$("#game-container").append(txtQuestionRestart);
+										      		
+										      		$("#input-restart-field").get(0).focus();
+
+										      		$("#input-restart-field").keypress(function(e){
+											      		if (e.which==13)
+				      									{
+															
+															location.reload();
+
+															return;
+														}
+													});
+												},2500);
+												
 
 										}else{
 
