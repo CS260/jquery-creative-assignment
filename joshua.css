@@ -2,12 +2,10 @@
 body {
   background: #00000c;
   color: #b0fdff;
+  font-size: 17px;
   font-family: "Press Start 2P", sans-serif;
 }
-/*h1 {
-  font-family: "Press Start 2P", cursive;
-  opacity: 0.1;
-}*/
+
 span {
   outline: none;
   text-transform: uppercase;
@@ -23,10 +21,22 @@ ul {
 }
 li {
   display: block;
-  text-shadow: 0 0 14px #5d9293;
+  text-shadow: 0 0 17px #5d9293;
   padding: 20px 0;
 }
 
 .blinker {
   opacity: 0.1;
+}
+
+input {
+  background: #00000c;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 15px;
+  color: white;
+  text-shadow: 0 0 17px #5d9293;
+}
+
+#input-restart-field {
+  opacity: 0;
 }

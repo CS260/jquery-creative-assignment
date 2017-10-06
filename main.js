@@ -95,7 +95,7 @@ $(document).ready(function(){
 											$("#game-container").append(txtQuestionEnd);
 
 
-				      							
+
 				      							setTimeout(function(){
 													var txtQuestionRestart;
 													txtQuestionRestart = "<div>"
@@ -103,20 +103,20 @@ $(document).ready(function(){
 													txtQuestionRestart += "<p> Restart game? Press Enter</p>";
 													txtQuestionRestart += '<input id="input-restart-field" type="text" value="">'
 										      		$("#game-container").append(txtQuestionRestart);
-										      		
+
 										      		$("#input-restart-field").get(0).focus();
 
 										      		$("#input-restart-field").keypress(function(e){
 											      		if (e.which==13)
 				      									{
-															
+
 															location.reload();
 
 															return;
 														}
 													});
-												},2500);
-												
+												},1500);
+
 
 										}else{
 

@@ -4,8 +4,7 @@ var si;
 var yes = false;
 
 $(document).ready(function() {
-
-  //$('#greeting').hide();
+  
   $('#invite').hide();
 
   refresh();
@@ -32,7 +31,7 @@ $('html').on('click',function(){
 
 $(document).keypress(function(e){
 
-  if(e.which==13)// || e.which==83)
+  if(e.which==13)
   {
   var v = $('span').text();
   var l = $('li:last-of-type');
@@ -46,7 +45,7 @@ $(document).keypress(function(e){
     {
       l.after('<li></li>');
       refresh();
-      typeWriter('TOO BAD. WE\'RE PLAYING TRIVIA.<br>OKAY?', $('li:last-of-type'), 70);//typeWriter('LAME.\nLET\'S PLAY TRIVIA. OKAY?', '#no', 70);
+      typeWriter('TOO BAD. WE\'RE PLAYING TRIVIA.<br>OKAY?', $('li:last-of-type'), 70);
 
 
       t.empty();
@@ -67,21 +66,11 @@ $(document).keypress(function(e){
       l.after('<li></li>');
       l = $('li:last-of-type');
       refresh();
-      //typeWriter('IT\'S TRIVIA TIME!', l, 70);
       typeWriter('IT\'S TRIVIA TIME!', l, 70);
-      // l.on("changed",function(){
-      //   $('#prompt').show();
-      // })
-      // setTimeout(, );
-      //gameTime();
-      //
-      // l = $('li:last-of-type');
-      // l.after('<li id="countdown"></li>');
-      // refresh();
-      // typeWriter('3...2...1...', '#countdown', 70);
+
       setTimeout(function(){
         window.location.replace("main.html");
-      },2000);//7000);
+      },2000);
       break;
     }
     default:
@@ -90,7 +79,6 @@ $(document).keypress(function(e){
       l.after('<li></li>');
       refresh();
       typeWriter('QUIT FOOLING AROUND, <br> ANSWER YES / NO', $('li:last-of-type'), 70);
-      // l.after('<li>QUIT FOOLING AROUND,<br> ANSWER YES / NO');
       t.text('');
     }
     break;
@@ -131,11 +119,6 @@ function typeWriter(text, id, speed) {
     }
   }
 
-// function gameTime() {
-//   $('li:last-of-type').after('<li id="game"></li>')
-//   refresh();
-//   typeWriter('IT\'S TRIVIA TIME!', '#game', 70);
-// }
 
 function refresh()
 {
