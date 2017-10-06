@@ -105,7 +105,10 @@ $(document).ready(function(){
 										      		$("#game-container").append(txtQuestionRestart);
 
 										      		$("#input-restart-field").get(0).focus();
-
+															$('html').on('click',function(){
+															  $('#input-restart-field').get(0).focus();
+															  console.log("click!");
+															});
 										      		$("#input-restart-field").keypress(function(e){
 											      		if (e.which==13)
 				      									{
