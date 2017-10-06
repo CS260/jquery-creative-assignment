@@ -2,7 +2,7 @@
 body {
   background: #00000c;
   color: #b0fdff;
-  font-size: 17px;
+  font-size: 15px;
   font-family: "Press Start 2P", sans-serif;
 }
 
@@ -21,7 +21,7 @@ ul {
 }
 li {
   display: block;
-  text-shadow: 0 0 17px #5d9293;
+  text-shadow: 0 0 15px #5d9293;
   padding: 20px 0;
 }
 
@@ -34,7 +34,7 @@ input {
   font-family: "Press Start 2P", sans-serif;
   font-size: 15px;
   color: white;
-  text-shadow: 0 0 17px #5d9293;
+  text-shadow: 0 0 15px #5d9293;
 }
 
 #input-restart-field {
