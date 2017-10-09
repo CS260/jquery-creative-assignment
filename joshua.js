@@ -4,24 +4,27 @@ var si;
 var yes = false;
 
 $(document).ready(function() {
-  
+
   $('#invite').hide();
 
+  $("#player1").get(0).play();
   refresh();
+
   typeWriter("GREETINGS PROFESSOR FALKEN.","#greeting",70);
 
-  $("#player1").get(0).play();
-  $("#player1").on("ended", function(){
+ function invite(){
+   refresh();
+   $('#invite').show();
+   typeWriter("SHALL WE PLAY A GAME? (YES/NO)","#invite",80);
 
-    refresh();
-    $('#invite').show();
-    typeWriter("SHALL WE PLAY A GAME? (YES/NO)","#invite",80);
+   $("#player2").get(0).play();
+   $('span').get(0).focus();
+     console.log("focus!");
+ };
 
-    $("#player2").get(0).play();
-    $('span').get(0).focus();
-      console.log("focus!");
-  });
+ setTimeout(invite,2300);
 });
+
 
 $('html').on('click',function(){
   $('span').get(0).focus();
